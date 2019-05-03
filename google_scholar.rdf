@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:rel="http://www.perceive.net/schemas/relationship/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">   
+
+    <rdf:Property rdf:ID="affiliation">
+        <rdfs:domain rdf:resource="foaf:Person" />
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal" />
+        <rdfs:label xml:lang="en">affiliation</rdfs:label>
+        <rdfs:comment xml:lang="en">A (past or present) affiliation of a person.</rdfs:comment>
+    </rdf:Property>
+    
+</rdf:RDF>
