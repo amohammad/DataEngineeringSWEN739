@@ -22,8 +22,8 @@
     <rdf:Property rdf:ID="citesPerYear">
         <rdfs:domain rdf:resource="foaf:Person" />
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal" />
-        <rdfs:label xml:lang="en">interests</rdfs:label>
-        <rdfs:comment xml:lang="en">An interests of a person.</rdfs:comment>
+        <rdfs:label xml:lang="en">Citations Per Year</rdfs:label>
+        <rdfs:comment xml:lang="en">Citations per year of a person.</rdfs:comment>
     </rdf:Property>
     
 </rdf:RDF>
