@@ -1,0 +1,34 @@
+abdobus.com:
+- [done] fuel consumption -> add new purchasing fuel is cumulative , and so for the parts
+- [done] more than one cost center
+- [done] bus in mentanace...
+- [done] اضافة تاريخ التسيير
+- error handeler send any error to email-> to email
+- [done] chosen on select
+- [done] image for driver
+
+- drivers logoin to view there shedual
+- if more than 2 shift for the driver notify me
+- delete assign time
+- shift morning(Fri vacation, Sat vacation): 8-16, 16-00, 00-8, (total 6 shifts)
+- can add more than one in and out in the same day (each in must have out befor add new in)
+- if have assign time show it to him (dont allow him to select shift and bus)
+- 2 fuall tanks
+
+يستطيع السائق أن يقوم بحركة تبديل الباص أو المركبة مع إدخال ملاحظات. وكذلك يستطيع المشرف أن يعدل على الوقت الحالي وتوقيفه حتى هذه اللحظة و فتح وقت جديد مع مركبة جديدة مع إدخال ملاحظات.
+ 
+طبعا لا يستطيع اخذ او إسناد باص معطل.
+
+كذلك إمكانية منع سائق معين من أخذ باص معين و اظهار رسالة أن هذا الباص غير متوفر لك.
+
+
+**************************************************************************
+https://samsonasik.wordpress.com/2013/04/10/zend-framework-2-generate-doctrine-entities-from-existing-database-using-doctrinemodule-and-doctrineormmodule/
+1- convert-mapping (create entities mapping): 
+./vendor/doctrine/doctrine-module/bin/doctrine-module orm:convert-mapping --namespace="Application\\Entity\\" --force  --from-database annotation ./EXPORT/
+2- move convert-mapping entities from "./EXPORT/Application/Entity/" to Entity directory.
+3- generate-entities (add setter/getter into entities):
+./vendor/doctrine/doctrine-module/bin/doctrine-module orm:generate-entities ./EXPORT/ --generate-annotations=true
+**************************************************************************
+**************************************************************************
+
