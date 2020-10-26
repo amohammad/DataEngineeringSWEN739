@@ -1,0 +1,46 @@
+
+    	<?php 
+    	$activeSlides = $this->slides($this->getHelperPluginManager()->getServiceLocator());
+    	if (!empty($activeSlides)):?>
+    	<section id="home">
+    		<div class="home-pattern"></div>
+    		<div id="main-carousel" class="carousel slide" data-ride="carousel"> 
+    			<ol class="carousel-indicators">
+    				<?php 
+        			foreach ($activeSlides as $k => $slide):?>
+    				<li data-target="#main-carousel" data-slide-to="<?php echo $k?>" class="<?php echo $k == 0 ? 'active' : ''?>"></li>
+    				<?php 
+    				endforeach;?>
+    			</ol>
+    			<div class="carousel-inner">
+    				<?php 
+        			foreach ($activeSlides as $k => $slide):
+        			$this->headMeta()->appendProperty('og:image', $this->serverUrl() . '/display/' . $slide->getMainImage());?>
+    				<div class="item <?php echo $k == 0 ? 'active' : ''?>" style="background-image: url(/display/<?php echo $slide->getMainImage()?>)"> 
+    					<div class="carousel-caption"> 
+    						<div> 
+    							<h2 class="heading animated bounceInDown"><?php echo $slide->getTitle()?></h2> 
+    							<p class="animated bounceInUp"><?php echo $slide->getDescription()?></p> 
+    							<?php 
+    							if ($slide->getLink()):?>
+    							<a class="btn btn-default slider-btn animated bounceInUp" href="<?php echo $slide->getLink()?>">المزيد</a> <?php //TODO?>
+    							<?php 
+    							endif;?>
+    						</div> 
+    					</div> 
+    				</div>
+    				<?php 
+    				endforeach;?>
+    			</div>
+    			<a class="carousel-left member-carousel-control hidden-xs" href="#main-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+    			<a class="carousel-right member-carousel-control hidden-xs" href="#main-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+    		</div> 
+    	</section>
+    	<?php 
+    	endif;?>
+
+		<?php 
+		if (isset($contactPart) && is_object($contactPart)):
+		  echo $this->partial($contactPart);
+        endif;
+        ?>
