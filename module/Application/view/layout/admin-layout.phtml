@@ -1,0 +1,113 @@
+<?= $this->doctype() ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('Data_Engineering_SWEN739')->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+            ->appendHttpEquiv('description', '')
+        ?>
+        <!-- Le styles -->
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath('images/favicon.ico')])
+            ->appendStylesheet($this->basePath('adm/css/bootstrap.min.css'))
+//             ->appendStylesheet($this->basePath('css/bootstrap-arabic.min.css'))
+            ->appendStylesheet($this->basePath('adm/css/admin.css'))
+//             ->appendStylesheet($this->basePath('adm/css/admin-rtl.css'))
+            ->appendStylesheet($this->basePath('adm/font-awesome/css/font-awesome.min.css'))
+            ->appendStylesheet($this->basePath('adm/chosen_v1.8.5/chosen.min.css'))
+            ->appendStylesheet($this->basePath('adm/css/bootstrap-datetimepicker.min.css'))
+        ?>
+        <!-- Scripts -->
+        <?= $this->headScript()
+            ->appendFile($this->basePath('adm/js/jquery.js'))
+            ->appendFile($this->basePath('adm/js/moment.min.js'))
+            ->appendFile($this->basePath('adm/js/bootstrap.min.js'))
+//             ->appendFile($this->basePath('js/bootstrap-arabic.min.js'))
+            ->appendFile($this->basePath('adm/js/tinymce/tinymce.min.js'))
+            ->appendFile($this->basePath('adm/chosen_v1.8.5/chosen.jquery.min.js'))
+            ->appendFile($this->basePath('adm/js/bootstrap-datetimepicker.min.js'))
+//             ->appendFile($this->basePath('adm/js/bootstrap-datetimepicker.ar.js'))
+            ->appendFile($this->basePath('adm/js/adm.global.js'))
+        ?>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <?php echo $this->jsCustomScript?>
+        <style type="text/css">
+        .background-color-1 {background-color: #ccc}
+        </style>
+    </head>
+    <body>
+    <?php
+    if(!$this->zfcUserIdentity()): ?>
+    	<?php //TODO change login page...?>
+    	<style>
+    	body {
+          padding-top: 40px;
+          padding-bottom: 40px;
+          background-color: #eee;
+        }
+    	</style>
+    	<div class="text-center">
+    		<div style=""></div>
+    		<img alt="Data Engineering - SWEN739" src="/images/logo.png" width="300px">
+    		<h1>Data Engineering - SWEN739</h1>
+    		<div style=""></div>
+    	<?php echo $this->zfcUserLoginWidget(array('redirect'=>'c-panel')); ?>
+    	</div>
+	<?php
+	else: ?>
+        <div id="wrapper">
+            <?php echo $this->partial('partial/admin-nav', array('settings' => $settings));?>
+			<div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                        	<?php
+    						if ($this->title):?>
+    		                    <h1 class="page-header <?php echo $this->titleClass?>">
+    		                    	<?php echo $this->escapeHtml($this->title); 
+        	                    	if ($this->subTitle):?>
+									<small>[<?php echo nl2br($this->subTitle)?>]</small>
+        	                    	<?php 
+        	                    	endif;?>
+    	                    	</h1>
+        		            <?php 
+        		            endif;
+            					// view flash messages
+            					$flash = $this->flashMessenger();
+            					$flash->setMessageOpenFormat('<div%s>
+            		                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            		                     &times;
+            		                 </button>
+            		                 <ul><li>')->setMessageSeparatorString('</li><li>')->setMessageCloseString('</li></ul></div>');
+            					echo $flash->render('error', array('alert', 'alert-dismissable', 'alert-danger'));
+            					echo $flash->render('info', array('alert', 'alert-dismissable', 'alert-info'));
+            					echo $flash->render('default', array('alert', 'alert-dismissable', 'alert-warning'));
+            					echo $flash->render('success', array('alert', 'alert-dismissable', 'alert-success'));
+            					
+            					
+            					if ($this->hint) {
+            					    echo '<p class="Data_Engineering_SWEN739-hint ' . ($this->hintClass ?: 'well') . '">' . nl2br($this->hintWithoutEscapeHtml ? $this->hint : $this->escapeHtml($this->hint)) . '</p>';
+            					}
+            					
+            					echo $this->content;
+            				?>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+	            <footer>
+	                <p style="float: right">&copy; <?php echo date('Y') ?> <a href="<?php echo $this->url('c-panel') ?>">DataEngineeringSWEN739</a> </p>
+	            </footer>
+            </div>
+        </div>
+    <?php echo $this->inlineScript() ?>
+	<?php
+    endif?>
+    </body>
+</html>

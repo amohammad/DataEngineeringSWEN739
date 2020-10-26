@@ -1,0 +1,23 @@
+<?php if (isset($headerMessage) && $headerMessage) {echo $headerMessage;} ?>
+<div class="row row-fluid" style="margin-bottom: 5px;">
+    <!-- Actions (add, ...) -->
+    <div class="span3 col-md-3 text-left">
+        <?php if (isset($globalActions)) : ?>
+        <?php foreach ($globalActions as $globalActionName => $globalActionURL) : ?>
+        <a class="btn btn-primary" href="<?php echo $globalActionURL; ?>">
+            <?php echo $globalActionName; ?> <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+        <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+    
+    <!-- Anything else (filter, ...) -->
+    <div class="span6 col-md-6">
+        <?php if (isset($middleToolbarTemplate) && $middleToolbarTemplate) {echo $this->partial($middleToolbarTemplate);} ?>
+    </div>
+    
+    <!-- Export buttons -->
+    <div class="span3 col-md-3 text-right">
+        <?php echo $this->partial('zfc-datagrid/toolbar/export');?>
+    </div>
+</div>

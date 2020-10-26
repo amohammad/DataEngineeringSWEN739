@@ -1,0 +1,30 @@
+<?php
+echo $this->doctype(); ?>
+<html lang="<?php echo \Locale::getDefault(); ?>" class="no-js">
+    <head>
+	   <meta charset="utf-8">
+       <?php echo $this->headTitle('BMS '. $this->translate('Home'))->setSeparator(' - ')->setAutoEscape(false) ?>
+	   <meta name="viewport" content="width=device-width, initial-scale=1">
+	   
+	   <meta http-equiv="refresh" content="800;URL=''">
+       
+       <!-- Styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . 'images/ficon.ico'))
+                        ->appendStylesheet('https://fonts.googleapis.com/css?family=Roboto:400,300,700')
+//                         ->appendStylesheet($this->basePath() . '/jquery-mobile/jquery.mobile-1.4.5.css')
+                        ->appendStylesheet($this->basePath() . '/barcodeAtt/css/reset.css')
+                        ->appendStylesheet($this->basePath() . '/barcodeAtt/css/style.css')
+        ?>
+        <!-- Scripts -->
+        <?php echo $this->headScript()//->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                                      ->appendFile($this->basePath() . '/barcodeAtt/js/modernizr.js')
+                                      ->appendFile($this->basePath() . '/barcodeAtt/js/jquery-2.1.4.js')
+//                                       ->appendFile($this->basePath() . '/jquery-mobile/jquery.mobile-1.4.5.js')
+                                      ->appendFile($this->basePath() . '/barcodeAtt/js/snap.svg-min.js')
+                                      ->appendFile($this->basePath() . '/barcodeAtt/js/main.js')
+        ?>
+</head>
+<body>
+    <?php echo $this->content; ?>
+</body>
+</html>
